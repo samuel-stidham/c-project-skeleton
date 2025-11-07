@@ -1,5 +1,5 @@
 ###############################################################################
-# c-project-skeleton-v2 Makefile
+# c-project-skeleton Makefile
 #
 # This Makefile supports Linux and macOS. It supports gcc and clang, and
 # defines debug and release builds along with targets for formatting,
@@ -19,7 +19,7 @@
 ###############################################################################
 # Project Configuration
 ###############################################################################
-PROJECT = c-project-skeleton-v2
+PROJECT = c-project-skeleton
 
 ###############################################################################
 # OS and Compiler Settings
