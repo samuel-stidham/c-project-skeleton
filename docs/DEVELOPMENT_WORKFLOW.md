@@ -1,4 +1,4 @@
-# Development Workflow for c-project-skeleton-v2
+# Development Workflow for c-project-skeleton
 
 This document outlines the recommended workflow for developing, testing, and releasing the project. The workflow leverages our Makefile targets for building, analyzing, debugging, unit testing, and eventually compiling a production build.
 
