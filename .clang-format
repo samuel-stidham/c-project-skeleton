@@ -1,0 +1,17 @@
+---
+# K&R-derived 1TBS: every opening brace attaches to the line that opens it,
+# and every control statement gets braces. InsertBraces adds missing ones,
+# and clang-tidy's readability-braces-around-statements enforces the rule.
+BasedOnStyle: LLVM
+IndentWidth: 2
+ColumnLimit: 120
+BreakBeforeBraces: Attach
+InsertBraces: true
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+DerivePointerAlignment: false
+PointerAlignment: Right
+SpaceBeforeParens: ControlStatements
+SpaceAfterCStyleCast: true
+IndentCaseLabels: true

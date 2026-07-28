@@ -1,0 +1,49 @@
+---
+# clang-tidy configuration for C. Only check groups relevant to C code are
+# enabled.
+#
+# Disabled checks:
+#   -cert-err33-c: flags every ignored standard-library return value,
+#       printf included, which is too noisy for application code. Cast to
+#       (void) where discarding a result is deliberate.
+#   -readability-identifier-length: short names like i, n, and fp are
+#       idiomatic C.
+#   -readability-magic-numbers: too strict as a skeleton default.
+#       Re-enable per project if wanted.
+#   -misc-include-cleaner: flags every transitively provided symbol, which
+#       defeats convenience headers like tests/suites.h.
+Checks: >
+  -*,
+  bugprone-*,
+  cert-*,
+  clang-analyzer-*,
+  concurrency-*,
+  misc-*,
+  performance-*,
+  portability-*,
+  readability-*,
+  -cert-err33-c,
+  -misc-include-cleaner,
+  -readability-identifier-length,
+  -readability-magic-numbers
+
+WarningsAsErrors: "*"
+HeaderFilterRegex: ".*"
+FormatStyle: file
+
+# Naming follows common C practice: snake_case for code, UPPER_CASE for
+# macros, enum constants, and global constants. The always-braces half of
+# 1TBS comes from readability-braces-around-statements above.
+CheckOptions:
+  - { key: readability-identifier-naming.FunctionCase,        value: lower_case }
+  - { key: readability-identifier-naming.VariableCase,        value: lower_case }
+  - { key: readability-identifier-naming.ParameterCase,       value: lower_case }
+  - { key: readability-identifier-naming.StructCase,          value: lower_case }
+  - { key: readability-identifier-naming.UnionCase,           value: lower_case }
+  - { key: readability-identifier-naming.EnumCase,            value: lower_case }
+  - { key: readability-identifier-naming.TypedefCase,         value: lower_case }
+  - { key: readability-identifier-naming.MacroDefinitionCase, value: UPPER_CASE }
+  - { key: readability-identifier-naming.EnumConstantCase,    value: UPPER_CASE }
+  - { key: readability-identifier-naming.GlobalConstantCase,  value: UPPER_CASE }
+  - { key: readability-implicit-bool-conversion.AllowIntegerConditions, value: 1 }
+  - { key: readability-implicit-bool-conversion.AllowPointerConditions, value: 1 }
