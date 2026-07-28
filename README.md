@@ -6,6 +6,8 @@ CMake and Ninja drive the build. A thin Makefile provides the daily verbs, so `m
 
 It all works on clone. Warnings are errors from the first compile. Sanitizers and static analysis are configured, not left as a TODO. The Check suite ships with real tests in it.
 
+Sibling to [cpp-project-skeleton](https://github.com/samuel-stidham/cpp-project-skeleton).
+
 ## Directory Structure
 
 ```bash
